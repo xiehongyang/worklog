@@ -30,15 +30,32 @@ src/app/
   app.ts       shell: header + navigation + router outlet
 ```
 
+## Status
+
+Done:
+
+- Projects: create, archive/restore, hourly rate per project
+- Time entries: log hours per project per day, delete
+- Monthly summary: hours and amount per project, totals per currency
+- Unit tests (Vitest) and CI (GitHub Actions)
+
 ## Roadmap
 
-See the bottom of this file as features land. Planned, roughly in order:
+Roughly in order:
 
-1. Projects: create, edit, archive
-2. Time entries: log hours per project per day
-3. Monthly summary: hours and amount per project
-4. Payments: record what has been paid, show outstanding balance
-5. Export: CSV for a month
-6. Backend API (ASP.NET Core) replacing `localStorage`
-7. SSR + hydration
-8. End-to-end tests (Playwright) and CI
+1. Edit a project in place (name, rate) and an entry (hours, note)
+2. Payments: record what has been paid, show outstanding balance per project
+3. Filter entries by project and month; CSV export for a month
+4. Replace `localStorage` with a backend API (ASP.NET Core) using the Resource API (`httpResource`)
+5. SSR + hydration
+6. End-to-end tests with Playwright
+
+## Notes on the Angular side
+
+This is also where I try the current Angular (v22) way of doing things rather than the
+NgModule/RxJS patterns I know from older apps:
+
+- state as signals in a `@Service()` store, derived views with `computed()`
+- forms with `@angular/forms/signals` (schema-based validation, `[formField]`)
+- native control flow, lazy `loadComponent` routes, zoneless by default
+- Vitest instead of Karma/Jasmine
