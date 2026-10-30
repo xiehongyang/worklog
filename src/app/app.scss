@@ -1,1 +1,50 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
 
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 1.5rem;
+  height: 3.5rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.brand {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  gap: 0.25rem;
+
+  a {
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+
+    &:hover {
+      color: var(--text);
+      background: var(--surface-hover);
+    }
+
+    &.active {
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+  }
+}
+
+.app-main {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
