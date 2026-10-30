@@ -57,3 +57,17 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Use the `providedIn: 'root'` option for singleton services
 - Prefer the `@Service` decorator over `@Injectable({providedIn: 'root'})` for new singleton services (Angular v22+)
 - Use the `inject()` function instead of constructor injection
+
+## This project
+
+`worklog` is a local-first time and invoice tracker for freelance work. See README.md.
+
+- Domain code lives in `src/app/core` (models, `WorklogStore`, persistence). Pages live in
+  `src/app/features/<page>` and are lazy-loaded from `app.routes.ts`.
+- All app state goes through `WorklogStore` (signals). Components never touch `localStorage`
+  directly.
+- Dates are ISO `YYYY-MM-DD` strings; money is a `number` in the project's currency. Keep it simple
+  until a backend exists.
+- Every feature commit must keep `npm run build` and `npm test` green.
+- Prefer small commits, one concern each, with a conventional-commit prefix (`feat:`, `fix:`,
+  `test:`, `docs:`, `chore:`).
